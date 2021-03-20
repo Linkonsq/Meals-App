@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:mealsapp/dummy_data.dart';
 import 'package:mealsapp/models/meal.dart';
@@ -6,7 +7,14 @@ import 'package:mealsapp/screens/filters_screen.dart';
 import 'package:mealsapp/screens/meal_detail_screen.dart';
 import 'package:mealsapp/screens/tabs_screen.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(
+      DevicePreview(
+        enabled: false,
+        builder: (BuildContext context) {
+          return MyApp();
+        },
+      ),
+    );
 
 class MyApp extends StatefulWidget {
   @override
@@ -69,6 +77,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'DeliMeals',
       theme: ThemeData(
         primarySwatch: Colors.pink,
